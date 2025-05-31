@@ -1,4 +1,4 @@
-package src.app;
+
 import java.util.Scanner;
 
 public enum MenuOption {
@@ -20,7 +20,8 @@ public enum MenuOption {
         @Override
         public void execute(TaskManager manager, Scanner scanner) {
             manager.listTasks();
-            if (!manager.hasTasks()) return;
+            if (!manager.hasTasks())
+                return;
 
             System.out.print("Enter the number of the task to mark as complete: ");
             try {
@@ -49,7 +50,8 @@ public enum MenuOption {
     public static MenuOption fromInput(String input, boolean hasTasks) {
         for (MenuOption option : values()) {
             if (option.optionNumber.equals(input)) {
-                if (!hasTasks && option == MARK_COMPLETE) return null;
+                if (!hasTasks && option == MARK_COMPLETE)
+                    return null;
                 return option;
             }
         }
